@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Tooth Upcoming show</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #040717;
+        background-image: url('https://prabhasmediabucket.s3.ap-south-1.amazonaws.com/15.jpeg');
+        background-position: center center;
+        background-size: cover;
+      }
+      html,
+      body,
+      section {
+        height: 100%;
+        width: 100%;
+      }
+
+      section {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 100px;
+      }
+
+      .silhouette {
+        background-image: url('https://prabhasmediabucket.s3.ap-south-1.amazonaws.com/2.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-size: 180% 180%;
+        width: 561px;
+        height: 510px;
+        -webkit-mask: url('https://prabhasmediabucket.s3.ap-south-1.amazonaws.com/rt6.png');
+        -webkit-mask-size: cover;
+      }
+      .neonText {
+        color: #fff;
+        text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+          0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 121px #0fa;
+      }
+
+      /* Additional styling */
+
+      body {
+        font-size: 18px;
+        font-family: 'Vibur', sans-serif;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      h1 {
+        font-size: 4.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+      .flexcontainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 100px;
+      }
+      .right-margin {
+        margin-right: 5%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-image: url('https://prabhasmediabucket.s3.ap-south-1.amazonaws.com/background3.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 505px 531px;
+        padding: 25px 0;
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .button {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        border-radius: 10rem;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        letter-spacing: 0.15rem;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .button:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0cf;
+        border-radius: 10rem;
+        z-index: -2;
+      }
+      .button:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #008fb3;
+        transition: all 0.3s;
+        border-radius: 10rem;
+        z-index: -1;
+      }
+      .button:hover {
+        color: #fff;
+      }
+      .button:hover:before {
+        width: 100%;
+      }
+      a:link,
+      a:visited,
+      a:active {
+        text-decoration: none;
+      }
+      .w1 {
+        width: 50%;
+      }
+
+      footer {
+        color: #8a4040;
+        font-size: 11px;
+        background: #210101;
+        font-family: monospace;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexcontainer">
+      <div class="w1">
+        <section>
+          <div class="silhouette"></div>
+        </section>
+      </div>
+      <div class="right-margin w1">
+        <h1 class="neonText">The<br />American<br />Rock<br />Tribute</h1>
+        <div class="w-100"></div>
+
+        <a href="#" class="button">Buy Tickets - 2nd September</a>
+      </div>
+    </div>
+    <footer>&nbsp;&nbsp;&nbsp;Ankit / Pradeep / Apoorv / Prabhas / Joy</footer>
+
+    <script type="module">
+      let x = 0;
+      let y = 0;
+      let counterToImageChange = 0;
+      let icon = document.getElementsByClassName('silhouette')[0];
+      const silloute = document.querySelector('.silhouette');
+      function changeImage() {
+        const imageIndex = `url('https://prabhasmediabucket.s3.ap-south-1.amazonaws.com/${Math.floor(
+          Math.random() * 12
+        )}.jpeg')`;
+
+        silloute.style.backgroundImage = imageIndex;
+      }
+      setInterval(() => {
+        const rX = Math.random();
+        const rY = Math.random();
+
+        x += rX;
+        y += rY;
+
+        let xP = x * 3 + 150;
+        let yP = y * 7 + 150;
+        icon.style.backgroundPosition = `${xP}% ${yP}%`;
+        counterToImageChange++;
+
+        if (counterToImageChange % 100 === 0) {
+          changeImage();
+        }
+      }, 50);
+    </script>
+  </body>
+</html>
